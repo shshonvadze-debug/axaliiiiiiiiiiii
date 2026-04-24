@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>იურიდიული სერვისი | Legal Service</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F4F7FB;
+    --warm-white: #FFFFFF;
+    --brown-dark: #0F2244;
+    --brown-mid: #1A3A6E;
+    --brown-light: #2A5298;
+    --gold: #E8500A;
+    --gold-light: #FF7A3D;
+    --sage: #1A7F5A;
+    --text: #0F2244;
+    --text-light: #4A6080;
+    --border: #D8E4F0;
+    --shadow: rgba(15, 34, 68, 0.10);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Sans Georgian', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ===== LANGUAGE SWITCHER ===== */
+  .lang-bar {
+    background: var(--brown-dark);
+    padding: 8px 40px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 4px;
+  }
+  .lang-btn {
+    background: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.6);
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Noto Sans Georgian', sans-serif;
+  }
+  .lang-btn.active, .lang-btn:hover {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: white;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    background: var(--warm-white);
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 20px var(--shadow);
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .logo-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--brown-dark);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--brown-dark);
+    line-height: 1.2;
+  }
+  .logo-sub {
+    font-size: 11px;
+    color: var(--text-light);
+    font-weight: 400;
+    letter-spacing: 0.5px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--gold);
+    color: white !important;
+    padding: 10px 22px;
+    border-radius: 25px;
+    font-weight: 600 !important;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--brown-light) !important; color: white !important; }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 80px 40px 70px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFF0EA;
+    border: 1px solid var(--gold-light);
+    color: var(--brown-light);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 46px;
+    font-weight: 700;
+    color: var(--brown-dark);
+    line-height: 1.25;
+    margin-bottom: 20px;
+  }
+  .hero h1 span {
+    color: var(--gold);
+  }
+  .hero p {
+    font-size: 16px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    line-height: 1.8;
+  }
+  .hero-buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .btn-primary {
+    background: var(--brown-dark);
+    color: white;
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .btn-primary:hover { background: var(--brown-mid); transform: translateY(-1px); }
+  .btn-secondary {
+    background: transparent;
+    color: var(--brown-dark);
+    padding: 14px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    border: 2px solid var(--border);
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* Hero visual */
+  .hero-visual {
+    position: relative;
+  }
+  .hero-card {
+    background: white;
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 8px 40px var(--shadow);
+    border: 1px solid var(--border);
+  }
+  .hero-card h3 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    margin-bottom: 20px;
+  }
+  .process-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+  }
+  .process-step:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+  .step-num {
+    width: 32px;
+    height: 32px;
+    background: var(--gold);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .step-text strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--brown-dark);
+    margin-bottom: 2px;
+  }
+  .step-text span {
+    font-size: 13px;
+    color: var(--text-light);
+  }
+  .hero-tag {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    background: var(--sage);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: 600;
+    box-shadow: 0 4px 16px rgba(122,140,110,0.3);
+  }
+
+  /* ===== SECTION ===== */
+  section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 40px;
+  }
+  .section-label {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--brown-dark);
+    margin-bottom: 14px;
+  }
+  .section-sub {
+    font-size: 16px;
+    color: var(--text-light);
+    max-width: 560px;
+    margin-bottom: 50px;
+  }
+
+  /* ===== SERVICES ===== */
+  .section-services {
+    background: white;
+    padding: 70px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .section-services > div {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .service-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all 0.25s;
+    cursor: default;
+  }
+  .service-card:hover {
+    background: white;
+    border-color: var(--gold-light);
+    box-shadow: 0 6px 30px var(--shadow);
+    transform: translateY(-3px);
+  }
+  .service-icon {
+    font-size: 28px;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .service-card h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--brown-dark);
+    margin-bottom: 8px;
+  }
+  .service-card p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+  .service-note {
+    margin-top: 32px;
+    background: #FFF0EA;
+    border: 1px solid var(--gold-light);
+    border-radius: 12px;
+    padding: 18px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 14px;
+    color: var(--brown-mid);
+  }
+
+  /* ===== COMPLAINTS ===== */
+  .complaints-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+  .complaint-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all 0.25s;
+  }
+  .complaint-card:hover {
+    border-color: var(--gold-light);
+    box-shadow: 0 4px 20px var(--shadow);
+  }
+  .complaint-card h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--brown-dark);
+    margin: 12px 0 10px;
+  }
+  .complaint-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .complaint-card ul li {
+    font-size: 13px;
+    color: var(--text-light);
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+  .complaint-card ul li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* ===== HOW IT WORKS ===== */
+  .how-bg {
+    background: var(--brown-dark);
+    padding: 70px 0;
+  }
+  .how-bg > div {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .how-bg .section-label { color: var(--gold-light); }
+  .how-bg .section-title { color: white; }
+  .how-bg .section-sub { color: rgba(255,255,255,0.6); }
+  .steps-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    position: relative;
+  }
+  .steps-row::before {
+    content: '';
+    position: absolute;
+    top: 28px;
+    left: 14%;
+    right: 14%;
+    height: 2px;
+    background: linear-gradient(to right, var(--gold), var(--brown-light));
+    z-index: 0;
+  }
+  .how-step {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+  .how-num {
+    width: 56px;
+    height: 56px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 16px rgba(200,148,58,0.4);
+  }
+  .how-step h3 {
+    font-size: 15px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 8px;
+  }
+  .how-step p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.6;
+  }
+
+  /* ===== CONTACT ===== */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+  }
+  .contact-info h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--brown-dark);
+    margin-bottom: 16px;
+  }
+  .contact-info p {
+    font-size: 15px;
+    color: var(--text-light);
+    margin-bottom: 32px;
+    line-height: 1.8;
+  }
+  .contact-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .contact-method {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 20px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--brown-dark);
+    transition: all 0.2s;
+  }
+  .contact-method:hover {
+    border-color: var(--gold-light);
+    box-shadow: 0 4px 16px var(--shadow);
+  }
+  .contact-method-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--cream);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .contact-method strong {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .contact-method span {
+    font-size: 13px;
+    color: var(--text-light);
+  }
+
+  /* Contact Form Panel */
+  .contact-panel {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 36px;
+    box-shadow: 0 4px 30px var(--shadow);
+  }
+  .contact-panel h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--brown-dark);
+    margin-bottom: 6px;
+  }
+  .contact-panel p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 24px;
+  }
+  .form-group {
+    margin-bottom: 16px;
+  }
+  .form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--brown-mid);
+    margin-bottom: 6px;
+  }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--cream);
+    outline: none;
+    transition: border-color 0.2s;
+    resize: vertical;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+    background: white;
+  }
+  .form-submit {
+    width: 100%;
+    background: var(--brown-dark);
+    color: white;
+    border: none;
+    padding: 14px;
+    border-radius: 30px;
+    font-family: 'Noto Sans Georgian', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+  .form-submit:hover { background: var(--brown-mid); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--brown-dark);
+    color: rgba(255,255,255,0.6);
+    text-align: center;
+    padding: 28px 40px;
+    font-size: 13px;
+  }
+  footer strong { color: var(--gold-light); }
+
+  /* ===== CHAT WIDGET ===== */
+  .chat-widget {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 999;
+  }
+  .chat-btn {
+    width: 58px;
+    height: 58px;
+    background: var(--gold);
+    border: none;
+    border-radius: 50%;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: 0 4px 20px rgba(200,148,58,0.5);
+    transition: transform 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .chat-btn:hover { transform: scale(1.1); }
+  .chat-tooltip {
+    position: absolute;
+    right: 68px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--brown-dark);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    white-space: nowrap;
+    font-family: 'Noto Sans Georgian', sans-serif;
+  }
+  .chat-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-right: none;
+    border-left-color: var(--brown-dark);
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content { animation: fadeUp 0.7s ease both; }
+  .hero-visual { animation: fadeUp 0.7s ease 0.15s both; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; gap: 40px; padding: 40px 20px; }
+    .services-grid, .complaints-grid { grid-template-columns: 1fr; }
+    .steps-row { grid-template-columns: 1fr 1fr; }
+    .steps-row::before { display: none; }
+    .contact-grid { grid-template-columns: 1fr; }
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .lang-bar { padding: 8px 20px; }
+    section { padding: 50px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Language Bar -->
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('ka')">ქარ</button>
+  <button class="lang-btn" onclick="setLang('ru')">Рус</button>
+  <button class="lang-btn" onclick="setLang('en')">ENG</button>
+</div>
+
+<!-- Nav -->
+<nav>
+  <a href="#" class="logo">
+    <div class="logo-icon" style="background:none;padding:0;overflow:visible;">
+    <svg width="42" height="42" viewBox="0 0 58 58" xmlns="http://www.w3.org/2000/svg">
+      <rect x="2" y="16" width="32" height="32" rx="5" fill="none" stroke="#0F2244" stroke-width="3"/>
+      <rect x="20" y="2" width="32" height="32" rx="5" fill="#E8500A"/>
+      <rect x="20" y="16" width="14" height="18" rx="2" fill="#E8500A"/>
+    </svg>
+  </div>
+    <div>
+      <div class="logo-text" data-i18n="logo">იური სერვისი</div>
+      <div class="logo-sub" data-i18n="logo-sub">იურიდიული დახმარება</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services" data-i18n="nav-services">სერვისები</a></li>
+    <li><a href="#pricing">განფასება</a></li>
+    <li><a href="#complaints" data-i18n="nav-complaints">საჩივრები</a></li>
+    <li><a href="#how" data-i18n="nav-how">როგორ ვმუშაობთ</a></li>
+    <li><a href="#contact" class="nav-cta" data-i18n="nav-contact">დაგვიკავშირდით</a></li>
+  </ul>
+</nav>
+
+<!-- Hero -->
+<div style="max-width:1100px;margin:0 auto;padding:0 40px;">
+  <div class="hero" style="padding:80px 0 70px;max-width:100%;">
+    <div class="hero-content">
+      <div class="hero-badge">🤝 <span data-i18n="badge">იურისტები, რომელთა მოყოლა გინდებათ</span></div>
+      <h1 data-i18n="h1">თქვენი <span>მეგობარი</span> — იურისტი</h1>
+      <p data-i18n="hero-p">იურისტებთან ურთიერთობა რთული გგონია? სხვა ენაზე საუბრობენ, გაუგებარი ტერმინებით — და მათთან კომუნიკაცია მხოლოდ მაშინ გინდება, როცა დიდი პრობლემები გაქვს.<br><br>ეს ჩვენზე არ ითქმის. ჩვენ შენს ენაზე ვსაუბრობთ.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn-primary">✉️ <span data-i18n="cta1">შეკვეთის გაკეთება</span></a>
+        <a href="#services" class="btn-secondary" data-i18n="cta2">სერვისები →</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-card">
+        <h3 data-i18n="card-title">🔄 სამუშაო პროცესი</h3>
+        <div class="process-step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <strong data-i18n="s1-title">გვანდეთ თქვენი საქმე</strong>
+            <span data-i18n="s1-desc">ჩვენ ვმოქმედებთ იმ ინფორმაციის საფუძველზე, რასაც გაგვანდობთ — მოგვაწოდეთ მეილით, ტელეფონით ან ჩატით</span>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <strong data-i18n="s2-title">ელაპარაკეთ ჩვენს გუნდს</strong>
+            <span data-i18n="s2-desc">ჩვენ გვინდა თქვენი მოსმენა — თქვენს საქმეს არ მივანდობთ ჩატბოტს ან ხელოვნურ ინტელექტს</span>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <strong data-i18n="s3-title">დოკუმენტი მზადდება</strong>
+            <span data-i18n="s3-desc">იურისტი ამზადებს გამართულ დოკუმენტს</span>
+          </div>
+        </div>
+        <div class="process-step">
+          <div class="step-num">4</div>
+          <div class="step-text">
+            <strong data-i18n="s4-title">გადახდა → მიღება</strong>
+            <span data-i18n="s4-desc">გადახდის შემდეგ დოკუმენტი გეგზავნებათ</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-tag">✅ <span data-i18n="hero-tag">მოქმედი კანონმდებლობის შესაბამისად</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Services -->
+<div class="section-services" id="services">
+  <div>
+    <div class="section-label" data-i18n="sec1-label">📄 ჩვენი სერვისები</div>
+    <div class="section-title" data-i18n="sec1-title">ხელშეკრულებების მომზადება</div>
+    <div class="section-sub" data-i18n="sec1-sub">ყველა ხელშეკრულება მზადდება მოქმედი კანონმდებლობის და უახლესი ცვლილებების გათვალისწინებით</div>
+    <div class="services-grid">
+      <div class="service-card">
+        <span class="service-icon">🏠</span>
+        <h3 data-i18n="srv1">იჯარის ხელშეკრულება</h3>
+        <p data-i18n="srv1-d">უძრავი ქონების (ბინა, კომერციული ფართი) იჯარით გადაცემის სრულად გაწერილი ხელშეკრულება</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏢</span>
+        <h3 data-i18n="srv2">ქირავნობის ხელშეკრულება</h3>
+        <p data-i18n="srv2-d">მოძრავი ან უძრავი ნივთის დროებითი სარგებლობის სამართლებრივი დოკუმენტი</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🏗️</span>
+        <h3 data-i18n="srv3">ნასყიდობის ხელშეკრულება</h3>
+        <p data-i18n="srv3-d">ქონების ყიდვა-გაყიდვის ხელშეკრულება ყველა აუცილებელი პირობით</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🤝</span>
+        <h3 data-i18n="srv4">მომსახურების ხელშეკრულება</h3>
+        <p data-i18n="srv4-d">ნებისმიერი ტიპის მომსახურების გაწევისთვის — მკაფიო ვალდებულებებით</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">💰</span>
+        <h3 data-i18n="srv5">ვალის აღიარების ხელშეკრულება</h3>
+        <p data-i18n="srv5-d">სამართლებრივად ამყარებს ვალის არსებობას და უზრუნველყოფს დაბრუნების მექანიზმებს</p>
+      </div>
+      <div class="service-card">
+        <span class="service-icon">🔄</span>
+        <h3 data-i18n="srv6">ვალის გადაკისრების ხელშეკრულება</h3>
+        <p data-i18n="srv6-d">ვალის მესამე პირზე გადაცემის სამართლებრივი ფორმა, სწორად გაფორმებული</p>
+      </div>
+      <div class="service-card" style="grid-column: span 1;">
+        <span class="service-icon">👔</span>
+        <h3 data-i18n="srv7">შრომითი ხელშეკრულება</h3>
+        <p data-i18n="srv7-d">დამსაქმებელსა და დასაქმებულს შორის ურთიერთობის სამართლებრივი რეგულირება</p>
+      </div>
+    </div>
+    <div class="service-note">
+      <span style="font-size:20px;">📌</span>
+      <span data-i18n="srv-note">ყველა ხელშეკრულება მზადდება <strong>მოქმედი კანონმდებლობის</strong> და <strong>უახლესი ცვლილებების</strong> სრული გათვალისწინებით და მორგებულია თქვენს კონკრეტულ მოთხოვნებზე.</span>
+    </div>
+    <div style="margin-top:20px;background:var(--brown-dark);border-radius:16px;padding:24px 28px;display:flex;align-items:center;gap:16px;">
+      <span style="font-size:28px;">💬</span>
+      <p style="color:white;font-size:15px;margin:0;">ამ სერვისების გარდა, ჩვენ უამრავ სხვა საკითხში შეგვიძლია დაგეხმაროთ. <strong style="color:var(--gold-light);">თქვენ უბრალოდ — იკითხეთ.</strong></p>
+    </div>
+  </div>
+</div>
+
+<!-- Pricing -->
+<section id="pricing" style="background:white;padding:70px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div style="max-width:1100px;margin:0 auto;padding:0 40px;">
+    <div class="section-label">💰 განფასება</div>
+    <div class="section-title">გამჭვირვალე ფასები</div>
+    <div class="section-sub">ყველაფერი წინასწარ ნათელია — დამალული საფასური არ გვაქვს</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;">
+
+      <div style="border:2px solid var(--border);border-radius:20px;padding:28px 24px;text-align:center;transition:all 0.25s;cursor:default;" onmouseover="this.style.borderColor='var(--gold)';this.style.boxShadow='0 6px 30px rgba(15,34,68,0.1)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+        <div style="font-size:32px;margin-bottom:12px;">📄</div>
+        <div style="font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);margin-bottom:8px;">მარტივი ხელშეკრულება</div>
+        <div style="font-size:36px;font-weight:700;color:var(--brown-dark);">50 ₾<span style="font-size:16px;font-weight:400;color:var(--text-light);">-დან</span></div>
+        <div style="font-size:13px;color:var(--text-light);margin-top:10px;">სტანდარტული პირობები, სწრაფი შესრულება</div>
+      </div>
+
+      <div style="border:2px solid var(--border);border-radius:20px;padding:28px 24px;text-align:center;transition:all 0.25s;cursor:default;" onmouseover="this.style.borderColor='var(--gold)';this.style.boxShadow='0 6px 30px rgba(15,34,68,0.1)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+        <div style="font-size:32px;margin-bottom:12px;">📋</div>
+        <div style="font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);margin-bottom:8px;">საშ. სირთულის ხელშეკრულება</div>
+        <div style="font-size:36px;font-weight:700;color:var(--brown-dark);">200 ₾<span style="font-size:16px;font-weight:400;color:var(--text-light);">-დან</span></div>
+        <div style="font-size:13px;color:var(--text-light);margin-top:10px;">ინდივიდუალური პირობები, დეტალური მომზადება</div>
+      </div>
+
+      <div style="border:2px solid var(--gold);border-radius:20px;padding:28px 24px;text-align:center;position:relative;box-shadow:0 6px 30px rgba(232,80,10,0.12);">
+        <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--gold);color:white;font-size:11px;font-weight:700;padding:4px 14px;border-radius:20px;white-space:nowrap;">ყველაზე მოთხოვნადი</div>
+        <div style="font-size:32px;margin-bottom:12px;">⚖️</div>
+        <div style="font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);margin-bottom:8px;">რთული ხელშეკრულება</div>
+        <div style="font-size:36px;font-weight:700;color:var(--brown-dark);">400 ₾<span style="font-size:16px;font-weight:400;color:var(--text-light);">-დან</span></div>
+        <div style="font-size:13px;color:var(--text-light);margin-top:10px;">რთული სტრუქტურა, სრული სამართლებრივი დაცვა</div>
+      </div>
+
+      <div style="border:2px solid var(--border);border-radius:20px;padding:28px 24px;text-align:center;transition:all 0.25s;cursor:default;" onmouseover="this.style.borderColor='var(--gold)';this.style.boxShadow='0 6px 30px rgba(15,34,68,0.1)'" onmouseout="this.style.borderColor='var(--border)';this.style.boxShadow='none'">
+        <div style="font-size:32px;margin-bottom:12px;">🚔</div>
+        <div style="font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--text-light);margin-bottom:8px;">საჩივარი</div>
+        <div style="font-size:36px;font-weight:700;color:var(--brown-dark);">100 ₾<span style="font-size:16px;font-weight:400;color:var(--text-light);">-დან</span></div>
+        <div style="font-size:13px;color:var(--text-light);margin-top:10px;">ადმინისტრაციული და კერძო საჩივრები</div>
+      </div>
+
+    </div>
+
+    <!-- Consultation highlight -->
+    <div style="margin-top:20px;background:var(--cream);border:1px solid var(--border);border-radius:16px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+      <div style="display:flex;align-items:center;gap:16px;">
+        <span style="font-size:32px;">🧭</span>
+        <div>
+          <strong style="font-size:16px;color:var(--brown-dark);">კონსულტაცია — 50 ₾</strong>
+          <p style="font-size:13px;color:var(--text-light);margin-top:4px;">პირველი კითხვიდან — ჩვენ გესმით. მოგვიყევი რა ხდება.</p>
+        </div>
+      </div>
+      <a href="#contact" class="btn-primary" style="white-space:nowrap;">კონსულტაციის დაჯავშნა →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- Complaints -->
+<section id="complaints">
+  <div class="section-label" data-i18n="sec2-label">⚖️ საჩივრები</div>
+  <div class="section-title" data-i18n="sec2-title">საჩივრების მომზადება</div>
+  <div class="section-sub" data-i18n="sec2-sub">ვიმოქმედებთ თქვენს ნაცვლად — ვამზადებთ საჩივარს, ვწერთ ინსტრუქციას, სურვილის შემთხვევაში ვწარვადგენთ</div>
+  <div class="complaints-grid">
+    <div class="complaint-card">
+      <div style="font-size:32px;">🚔</div>
+      <h3 data-i18n="c1">ადმინისტრაციული საჩივრები</h3>
+      <ul>
+        <li data-i18n="c1-1">უკანონო ჯარიმების გასაჩივრება (შსს, მერია)</li>
+        <li data-i18n="c1-2">პარკირების ჯარიმები</li>
+        <li data-i18n="c1-3">ავტოსაგზაო შემთხვევებში ბრალეულობის გასაჩივრება</li>
+      </ul>
+    </div>
+    <div class="complaint-card">
+      <div style="font-size:32px;">🛍️</div>
+      <h3 data-i18n="c2">მომხმარებელთა უფლებები</h3>
+      <ul>
+        <li data-i18n="c2-1">სავაჭრო ობიექტების წინააღმდეგ</li>
+        <li data-i18n="c2-2">არასწორი თანხის გადახდევინება</li>
+        <li data-i18n="c2-3">ნივთის კანონიერად უკან მიღება</li>
+      </ul>
+    </div>
+    <div class="complaint-card">
+      <div style="font-size:32px;">🏢</div>
+      <h3 data-i18n="c3">კერძო კომპანიები</h3>
+      <ul>
+        <li>მაგთიკომი · სილქნეტი</li>
+        <li>GWP · Energo Pro</li>
+        <li data-i18n="c3-last">თბილისი ენერჯი და სხვა</li>
+      </ul>
+    </div>
+  </div>
+  <div style="margin-top:40px;background:white;border:1px solid var(--border);border-radius:16px;padding:28px 32px;display:flex;align-items:center;gap:20px;">
+    <div style="font-size:36px;">🧭</div>
+    <div>
+      <strong style="font-size:16px;color:var(--brown-dark);" data-i18n="consult-title">იურიდიული კონსულტაცია</strong>
+      <p style="font-size:14px;color:var(--text-light);margin-top:4px;" data-i18n="consult-desc">დამატებით გთავაზობთ პრაქტიკულ იურიდიულ კონსულტაციას — სწორად დაგეგმოთ შემდგომი ნაბიჯები და თავიდან აიცილოთ რისკები</p>
+    </div>
+  </div>
+</section>
+
+<!-- How it works -->
+<div class="how-bg" id="how">
+  <div>
+    <div class="section-label" data-i18n="sec3-label">⚡ პროცესი</div>
+    <div class="section-title" data-i18n="sec3-title">როგორ ვმუშაობთ</div>
+    <div class="section-sub" data-i18n="sec3-sub">კლიენტი ყოველთვის ესაუბრება ადამიანს — არა ბოტს, არა ხელოვნურ ინტელექტს</div>
+    <div class="steps-row">
+      <div class="how-step">
+        <div class="how-num">1</div>
+        <h3 data-i18n="h1t">გამოგვიგზავნეთ</h3>
+        <p data-i18n="h1d">ინფორმაცია მეილით, ტელეფონით ან საიტის ჩატით</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">2</div>
+        <h3 data-i18n="h2t">სპეციალისტი პასუხობს</h3>
+        <p data-i18n="h2d">ჩვენი გუნდის წევრი ინიშნავს და ამუშავებს მონაცემებს</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">3</div>
+        <h3 data-i18n="h3t">იურისტი ამზადებს</h3>
+        <p data-i18n="h3d">გამართული დოკუმენტი კანონმდებლობის სრული დაცვით</p>
+      </div>
+      <div class="how-step">
+        <div class="how-num">4</div>
+        <h3 data-i18n="h4t">მიიღეთ დოკუმენტი</h3>
+        <p data-i18n="h4d">გადახდის შემდეგ დოკუმენტი გეგზავნებათ პირდაპირ</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Contact -->
+<section id="contact">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h2 data-i18n="cont-title">დაგვიკავშირდით</h2>
+      <p data-i18n="cont-p">გამოგვიგზავნეთ ინფორმაცია თქვენი სასურველი მეთოდით — ჩვენი სპეციალისტი მოგვაბრუნდება სწრაფად.</p>
+      <div class="contact-methods">
+        <a href="mailto:info@example.ge" class="contact-method">
+          <div class="contact-method-icon">✉️</div>
+          <div>
+            <strong data-i18n="m1">ელ. ფოსტა</strong>
+            <span>info@example.ge</span>
+          </div>
+        </a>
+        <a href="tel:+995555000000" class="contact-method">
+          <div class="contact-method-icon">📞</div>
+          <div>
+            <strong data-i18n="m2">ტელეფონი</strong>
+            <span>+995 555 000 000</span>
+          </div>
+        </a>
+        <a href="#" class="contact-method">
+          <div class="contact-method-icon">💬</div>
+          <div>
+            <strong data-i18n="m3">ჩატი საიტზე</strong>
+            <span data-i18n="m3-d">სწრაფი კომუნიკაცია ადამიანთან</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="contact-panel">
+      <h3 data-i18n="form-title">შეკვეთის გაკეთება</h3>
+      <p data-i18n="form-sub">შეავსეთ ფორმა — გიპასუხებთ მალე</p>
+      <div class="form-group">
+        <label data-i18n="f1">სახელი და გვარი</label>
+        <input type="text" placeholder="გიორგი მამულაძე">
+      </div>
+      <div class="form-group">
+        <label data-i18n="f2">ტელეფონი ან მეილი</label>
+        <input type="text" placeholder="+995 5XX XXX XXX">
+      </div>
+      <div class="form-group">
+        <label data-i18n="f3">სერვისის ტიპი</label>
+        <select>
+          <option data-i18n="fopt0">— აირჩიეთ —</option>
+          <option data-i18n="fopt1">იჯარის ხელშეკრულება</option>
+          <option data-i18n="fopt2">ქირავნობის ხელშეკრულება</option>
+          <option data-i18n="fopt3">ნასყიდობის ხელშეკრულება</option>
+          <option data-i18n="fopt4">მომსახურების ხელშეკრულება</option>
+          <option data-i18n="fopt5">ვალის აღიარება / გადაკისრება</option>
+          <option data-i18n="fopt6">შრომითი ხელშეკრულება</option>
+          <option data-i18n="fopt7">საჩივრის მომზადება</option>
+          <option data-i18n="fopt8">კონსულტაცია</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label data-i18n="f4">მოკლე აღწერა</label>
+        <textarea rows="3" placeholder="მოგვიყევით დეტალები..."></textarea>
+      </div>
+      <button class="form-submit" id="submitBtn" data-i18n="f-btn" onclick="submitForm()">გაგზავნა →</button>
+      <div id="form-msg" style="margin-top:12px;font-size:14px;text-align:center;display:none;"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+async function submitForm() {
+  const btn = document.getElementById("submitBtn");
+  const msg = document.getElementById("form-msg");
+
+  const name = document.querySelector("input[type='text']").value;
+  const contact = document.querySelectorAll("input[type='text']")[1].value;
+  const service = document.querySelector("select").value;
+  const description = document.querySelector("textarea").value;
+
+  if (!name || !contact) {
+    msg.style.display = "block";
+    msg.style.color = "#E8500A";
+    msg.textContent = "გთხოვთ შეავსოთ სახელი და კონტაქტი";
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = "იგზავნება...";
+  msg.style.display = "none";
+
+  try {
+    const res = await fetch("http://localhost:3001/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, contact, service, description })
+    });
+
+    const data = await res.json();
+
+    if (data.success) {
+      msg.style.display = "block";
+      msg.style.color = "#1A7F5A";
+      msg.textContent = "✓ შეტყობინება გაიგზავნა! მალე დაგიკავშირდებით.";
+      btn.textContent = "გაგზავნილია ✓";
+    } else {
+      throw new Error(data.error);
+    }
+  } catch (e) {
+    msg.style.display = "block";
+    msg.style.color = "#E8500A";
+    msg.textContent = "შეცდომა — სცადეთ თავიდან ან დაგვიკავშირდით პირდაპირ";
+    btn.disabled = false;
+    btn.textContent = "გაგზავნა →";
+  }
+}
+</script>
+
+<!-- Footer -->
+<footer>
+  <strong data-i18n="logo">იური სერვისი</strong> · <span data-i18n="foot">ყველა უფლება დაცულია</span> · 2024
+</footer>
+
+<!-- Chat Widget -->
+<div class="chat-widget">
+  <div class="chat-tooltip" data-i18n="chat-tip">ადამიანთან ჩატი</div>
+  <button class="chat-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">💬</button>
+</div>
+
+<script>
+const translations = {
+  ka: {
+    'logo': 'იური სერვისი', 'logo-sub': 'იურიდიული დახმარება',
+    'nav-services': 'სერვისები', 'nav-complaints': 'საჩივრები',
+    'nav-how': 'როგორ ვმუშაობთ', 'nav-contact': 'დაგვიკავშირდით',
+    'badge': 'იურისტები, რომელთა მოყოლა გინდებათ',
+    'h1': 'თქვენი <span>მეგობარი</span> — იურისტი',
+    'hero-p': 'იურისტებთან ურთიერთობა რთული გგონია? სხვა ენაზე საუბრობენ, გაუგებარი ტერმინებით — და მათთან კომუნიკაცია მხოლოდ მაშინ გინდება, როცა დიდი პრობლემები გაქვს.<br><br>ეს ჩვენზე არ ითქმის. ჩვენ შენს ენაზე ვსაუბრობთ.',
+    'cta1': 'შეკვეთის გაკეთება', 'cta2': 'სერვისები →',
+    'card-title': '🔄 სამუშაო პროცესი',
+    's1-title': 'გვანდეთ თქვენი საქმე', 's1-desc': 'ჩვენ ვმოქმედებთ იმ ინფორმაციის საფუძველზე, რასაც გაგვანდობთ — მოგვაწოდეთ მეილით, ტელეფონით ან ჩატით',
+    's2-title': 'ელაპარაკეთ ჩვენს გუნდს', 's2-desc': 'ჩვენ გვინდა თქვენი მოსმენა — თქვენს საქმეს არ მივანდობთ ჩატბოტს ან ხელოვნურ ინტელექტს',
+    's3-title': 'დოკუმენტი მზადდება', 's3-desc': 'იურისტი ამზადებს გამართულ დოკუმენტს',
+    's4-title': 'გადახდა → მიღება', 's4-desc': 'გადახდის შემდეგ დოკუმენტი გეგზავნებათ',
+    'hero-tag': 'მოქმედი კანონმდებლობის შესაბამისად',
+    'sec1-label': '📄 ჩვენი სერვისები', 'sec1-title': 'ხელშეკრულებების მომზადება',
+    'sec1-sub': 'ყველა ხელშეკრულება მზადდება მოქმედი კანონმდებლობის და უახლესი ცვლილებების გათვალისწინებით',
+    'srv1': 'იჯარის ხელშეკრულება', 'srv1-d': 'უძრავი ქონების (ბინა, კომერციული ფართი) იჯარით გადაცემის სრულად გაწერილი ხელშეკრულება',
+    'srv2': 'ქირავნობის ხელშეკრულება', 'srv2-d': 'მოძრავი ან უძრავი ნივთის დროებითი სარგებლობის სამართლებრივი დოკუმენტი',
+    'srv3': 'ნასყიდობის ხელშეკრულება', 'srv3-d': 'ქონების ყიდვა-გაყიდვის ხელშეკრულება ყველა აუცილებელი პირობით',
+    'srv4': 'მომსახურების ხელშეკრულება', 'srv4-d': 'ნებისმიერი ტიპის მომსახურების გაწევისთვის — მკაფიო ვალდებულებებით',
+    'srv5': 'ვალის აღიარების ხელშეკრულება', 'srv5-d': 'სამართლებრივად ამყარებს ვალის არსებობას და უზრუნველყოფს დაბრუნების მექანიზმებს',
+    'srv6': 'ვალის გადაკისრების ხელშეკრულება', 'srv6-d': 'ვალის მესამე პირზე გადაცემის სამართლებრივი ფორმა, სწორად გაფორმებული',
+    'srv7': 'შრომითი ხელშეკრულება', 'srv7-d': 'დამსაქმებელსა და დასაქმებულს შორის ურთიერთობის სამართლებრივი რეგულირება',
+    'srv-note': 'ყველა ხელშეკრულება მზადდება <strong>მოქმედი კანონმდებლობის</strong> და <strong>უახლესი ცვლილებების</strong> სრული გათვალისწინებით და მორგებულია თქვენს კონკრეტულ მოთხოვნებზე.',
+    'sec2-label': '⚖️ საჩივრები', 'sec2-title': 'საჩივრების მომზადება',
+    'sec2-sub': 'ვიმოქმედებთ თქვენს ნაცვლად — ვამზადებთ საჩივარს, ვწერთ ინსტრუქციას, სურვილის შემთხვევაში ვწარვადგენთ',
+    'c1': 'ადმინისტრაციული საჩივრები', 'c1-1': 'უკანონო ჯარიმების გასაჩივრება (შსს, მერია)', 'c1-2': 'პარკირების ჯარიმები', 'c1-3': 'ავტოსაგზაო შემთხვევებში ბრალეულობის გასაჩივრება',
+    'c2': 'მომხმარებელთა უფლებები', 'c2-1': 'სავაჭრო ობიექტების წინააღმდეგ', 'c2-2': 'არასწორი თანხის გადახდევინება', 'c2-3': 'ნივთის კანონიერად უკან მიღება',
+    'c3': 'კერძო კომპანიები', 'c3-last': 'თბილისი ენერჯი და სხვა',
+    'consult-title': 'იურიდიული კონსულტაცია', 'consult-desc': 'დამატებით გთავაზობთ პრაქტიკულ იურიდიულ კონსულტაციას — სწორად დაგეგმოთ შემდგომი ნაბიჯები და თავიდან აიცილოთ რისკები',
+    'sec3-label': '⚡ პროცესი', 'sec3-title': 'როგორ ვმუშაობთ', 'sec3-sub': 'თქვენს საქმეს ყოველთვის ადამიანი ისმენს — ჩატბოტი ან ხელოვნური ინტელექტი ჩვენთან არ გიპასუხებთ',
+    'h1t': 'გვანდეთ', 'h1d': 'ინფორმაცია მეილით, ტელეფონით ან საიტის ჩატით',
+    'h2t': 'ჩვენი გუნდი გისმენს', 'h2d': 'პირდაპირ ადამიანთან — ჩატბოტის გარეშე',
+    'h3t': 'იურისტი ამზადებს', 'h3d': 'გამართული დოკუმენტი კანონმდებლობის სრული დაცვით',
+    'h4t': 'მიიღეთ დოკუმენტი', 'h4d': 'გადახდის შემდეგ დოკუმენტი გეგზავნებათ პირდაპირ',
+    'cont-title': 'დაგვიკავშირდით', 'cont-p': 'გამოგვიგზავნეთ ინფორმაცია თქვენი სასურველი მეთოდით — ჩვენი სპეციალისტი მოგვაბრუნდება სწრაფად.',
+    'm1': 'ელ. ფოსტა', 'm2': 'ტელეფონი', 'm3': 'ჩატი საიტზე', 'm3-d': 'სწრაფი კომუნიკაცია ადამიანთან',
+    'form-title': 'შეკვეთის გაკეთება', 'form-sub': 'შეავსეთ ფორმა — გიპასუხებთ მალე',
+    'f1': 'სახელი და გვარი', 'f2': 'ტელეფონი ან მეილი', 'f3': 'სერვისის ტიპი', 'f4': 'მოკლე აღწერა', 'f-btn': 'გაგზავნა →',
+    'fopt0': '— აირჩიეთ —', 'fopt1': 'იჯარის ხელშეკრულება', 'fopt2': 'ქირავნობის ხელშეკრულება', 'fopt3': 'ნასყიდობის ხელშეკრულება', 'fopt4': 'მომსახურების ხელშეკრულება', 'fopt5': 'ვალის აღიარება / გადაკისრება', 'fopt6': 'შრომითი ხელშეკრულება', 'fopt7': 'საჩივრის მომზადება', 'fopt8': 'კონსულტაცია',
+    'foot': 'ყველა უფლება დაცულია', 'chat-tip': 'ადამიანთან ჩატი'
+  },
+  ru: {
+    'logo': 'Юри Сервис', 'logo-sub': 'Юридическая помощь',
+    'nav-services': 'Услуги', 'nav-complaints': 'Жалобы', 'nav-how': 'Как мы работаем', 'nav-contact': 'Связаться',
+    'badge': 'Быстрый и надёжный сервис',
+    'h1': 'Юридическая <span>помощь</span> — просто',
+    'hero-p': 'Отправьте нам информацию — наша команда подготовит ваш договор, заявление или жалобу. Каждый шаг — с человеком, не с ботом.',
+    'cta1': 'Сделать заказ', 'cta2': 'Услуги →',
+    'card-title': '🔄 Рабочий процесс',
+    's1-title': 'Связь', 's1-desc': 'Отправляете информацию — по почте, телефону или чату',
+    's2-title': 'Человек отвечает', 's2-desc': 'Наш специалист принимает и обрабатывает данные',
+    's3-title': 'Документ готовится', 's3-desc': 'Юрист готовит грамотный документ',
+    's4-title': 'Оплата → Получение', 's4-desc': 'После оплаты документ отправляется вам',
+    'hero-tag': 'В соответствии с действующим законодательством',
+    'sec1-label': '📄 Наши услуги', 'sec1-title': 'Подготовка договоров',
+    'sec1-sub': 'Все договоры готовятся с учётом действующего законодательства и последних изменений',
+    'srv1': 'Договор аренды (недвижимость)', 'srv1-d': 'Договор аренды квартиры или коммерческой площади с детальными условиями',
+    'srv2': 'Договор найма', 'srv2-d': 'Правовой документ для временного пользования движимым или недвижимым имуществом',
+    'srv3': 'Договор купли-продажи', 'srv3-d': 'Договор купли-продажи имущества со всеми необходимыми условиями',
+    'srv4': 'Договор оказания услуг', 'srv4-d': 'Для любого типа услуг — с чёткими обязательствами',
+    'srv5': 'Договор признания долга', 'srv5-d': 'Юридически закрепляет существование долга и механизм возврата',
+    'srv6': 'Договор перевода долга', 'srv6-d': 'Правовая форма передачи долга третьему лицу, оформленная корректно',
+    'srv7': 'Трудовой договор', 'srv7-d': 'Правовое регулирование отношений между работодателем и работником',
+    'srv-note': 'Все договоры готовятся с полным учётом <strong>действующего законодательства</strong> и <strong>последних изменений</strong>, и адаптированы к вашим конкретным требованиям.',
+    'sec2-label': '⚖️ Жалобы', 'sec2-title': 'Подготовка жалоб',
+    'sec2-sub': 'Действуем вместо вас — готовим жалобу, пишем инструкцию, при желании подаём',
+    'c1': 'Административные жалобы', 'c1-1': 'Обжалование незаконных штрафов (МВД, мэрия)', 'c1-2': 'Штрафы за парковку', 'c1-3': 'Обжалование вины в ДТП',
+    'c2': 'Защита прав потребителей', 'c2-1': 'Против торговых объектов', 'c2-2': 'Незаконное списание средств', 'c2-3': 'Возврат товара по закону',
+    'c3': 'Частные компании', 'c3-last': 'Тбилиси Энерджи и другие',
+    'consult-title': 'Юридическая консультация', 'consult-desc': 'Дополнительно предлагаем практическую юридическую консультацию — правильно спланируйте следующие шаги и избегите рисков',
+    'sec3-label': '⚡ Процесс', 'sec3-title': 'Как мы работаем', 'sec3-sub': 'Клиент всегда общается с человеком — не с ботом, не с ИИ',
+    'h1t': 'Отправьте нам', 'h1d': 'Информацию по почте, телефону или чату на сайте',
+    'h2t': 'Специалист отвечает', 'h2d': 'Член нашей команды принимает и обрабатывает данные',
+    'h3t': 'Юрист готовит', 'h3d': 'Грамотный документ с соблюдением законодательства',
+    'h4t': 'Получите документ', 'h4d': 'После оплаты документ отправляется напрямую вам',
+    'cont-title': 'Свяжитесь с нами', 'cont-p': 'Отправьте информацию удобным для вас способом — наш специалист ответит быстро.',
+    'm1': 'Эл. почта', 'm2': 'Телефон', 'm3': 'Чат на сайте', 'm3-d': 'Быстрая связь с человеком',
+    'form-title': 'Сделать заказ', 'form-sub': 'Заполните форму — ответим скоро',
+    'f1': 'Имя и фамилия', 'f2': 'Телефон или email', 'f3': 'Тип услуги', 'f4': 'Краткое описание', 'f-btn': 'Отправить →',
+    'fopt0': '— Выберите —', 'fopt1': 'Договор аренды', 'fopt2': 'Договор найма', 'fopt3': 'Купли-продажа', 'fopt4': 'Оказание услуг', 'fopt5': 'Признание / перевод долга', 'fopt6': 'Трудовой договор', 'fopt7': 'Подготовка жалобы', 'fopt8': 'Консультация',
+    'foot': 'Все права защищены', 'chat-tip': 'Чат с человеком'
+  },
+  en: {
+    'logo': 'Iuri Service', 'logo-sub': 'Legal Assistance',
+    'nav-services': 'Services', 'nav-complaints': 'Complaints', 'nav-how': 'How We Work', 'nav-contact': 'Contact Us',
+    'badge': 'Fast & Reliable Legal Service',
+    'h1': 'Legal <span>Assistance</span> — Made Simple',
+    'hero-p': 'Send us your information — our team will prepare your contract, statement, or complaint. Every step involves a real human, not a bot.',
+    'cta1': 'Place an Order', 'cta2': 'Our Services →',
+    'card-title': '🔄 How It Works',
+    's1-title': 'Contact Us', 's1-desc': 'Send information via email, phone or chat',
+    's2-title': 'Human Responds', 's2-desc': 'Our specialist takes note and processes your data',
+    's3-title': 'Document Prepared', 's3-desc': 'A lawyer drafts your legally sound document',
+    's4-title': 'Pay → Receive', 's4-desc': 'After payment, the document is sent to you',
+    'hero-tag': 'Per current Georgian legislation',
+    'sec1-label': '📄 Our Services', 'sec1-title': 'Contract Preparation',
+    'sec1-sub': 'All contracts are prepared in accordance with current legislation and the latest amendments',
+    'srv1': 'Lease Agreement', 'srv1-d': 'Rental agreement for property (apartment, commercial space) with detailed conditions',
+    'srv2': 'Rental Agreement', 'srv2-d': 'Legal document for temporary use of movable or immovable property',
+    'srv3': 'Purchase Agreement', 'srv3-d': 'Property sale contract with all necessary terms and conditions',
+    'srv4': 'Service Agreement', 'srv4-d': 'For any type of service — with clear obligations and responsibilities',
+    'srv5': 'Debt Acknowledgement', 'srv5-d': 'Legally establishes the existence of a debt and ensures repayment mechanisms',
+    'srv6': 'Debt Transfer Agreement', 'srv6-d': 'Legal form for transferring debt to a third party, properly executed',
+    'srv7': 'Employment Contract', 'srv7-d': 'Legal regulation of the relationship between employer and employee',
+    'srv-note': 'All contracts are prepared in full compliance with <strong>current legislation</strong> and <strong>latest amendments</strong>, tailored to your specific needs.',
+    'sec2-label': '⚖️ Complaints', 'sec2-title': 'Complaint Preparation',
+    'sec2-sub': 'We act on your behalf — prepare the complaint, write instructions, and submit if needed',
+    'c1': 'Administrative Complaints', 'c1-1': 'Challenging unlawful fines (Police, City Hall)', 'c1-2': 'Parking fines', 'c1-3': 'Contesting fault in traffic accidents',
+    'c2': 'Consumer Rights', 'c2-1': 'Against retail businesses', 'c2-2': 'Unlawful charges', 'c2-3': 'Legally returning goods',
+    'c3': 'Private Companies', 'c3-last': 'Tbilisi Energy and others',
+    'consult-title': 'Legal Consultation', 'consult-desc': 'We also offer practical legal consultation to help you plan your next steps and avoid risks',
+    'sec3-label': '⚡ Process', 'sec3-title': 'How We Work', 'sec3-sub': 'Clients always communicate with a real person — not a bot, not AI',
+    'h1t': 'Send Us Info', 'h1d': 'Via email, phone, or the website chat',
+    'h2t': 'Specialist Responds', 'h2d': 'Our team member takes note and processes your request',
+    'h3t': 'Lawyer Prepares', 'h3d': 'A proper document in full compliance with the law',
+    'h4t': 'Receive Document', 'h4d': 'After payment, the document is sent directly to you',
+    'cont-title': 'Contact Us', 'cont-p': 'Send your information via your preferred method — our specialist will get back to you quickly.',
+    'm1': 'Email', 'm2': 'Phone', 'm3': 'Website Chat', 'm3-d': 'Quick communication with a real person',
+    'form-title': 'Place an Order', 'form-sub': 'Fill out the form — we will respond shortly',
+    'f1': 'Full Name', 'f2': 'Phone or Email', 'f3': 'Service Type', 'f4': 'Brief Description', 'f-btn': 'Send →',
+    'fopt0': '— Select —', 'fopt1': 'Lease Agreement', 'fopt2': 'Rental Agreement', 'fopt3': 'Purchase Agreement', 'fopt4': 'Service Agreement', 'fopt5': 'Debt Acknowledgement / Transfer', 'fopt6': 'Employment Contract', 'fopt7': 'Complaint Preparation', 'fopt8': 'Consultation',
+    'foot': 'All rights reserved', 'chat-tip': 'Chat with a person'
+  }
+};
+
+function setLang(lang) {
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
+  document.querySelector(`.lang-btn[onclick="setLang('${lang}')"]`).classList.add('active');
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key]) el.innerHTML = t[key];
+  });
+  document.documentElement.lang = lang;
+}
+</script>
+</body>
+</html>
